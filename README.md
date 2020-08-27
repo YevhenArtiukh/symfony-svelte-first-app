@@ -1,1 +1,0 @@
-# symfony-svelte-first-app
