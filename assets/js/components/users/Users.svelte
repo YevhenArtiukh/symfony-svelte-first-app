@@ -5,12 +5,18 @@
     import User from "./User.svelte";
     import globalStore from '../../globalStore';
     import Loading from '../Loading.svelte';
+    import {navigate} from "svelte-routing";
 
     let users = [];
     let isLoading = true;
 
     onMount(async () => {
-        users = await getUsers();
+        let list = await getUsers();
+        if(list) {
+            users = await getUsers();
+        } else {
+            navigate('/login');
+        }
         isLoading = false;
     })
 

@@ -4,23 +4,20 @@
 namespace App\Entity\Users\UseCase\EditUser;
 
 
+use App\Entity\Users\User;
+
 class Command
 {
     private $id;
-    private $name;
-    private $surname;
-    private $email;
+    private $user;
 
     public function __construct(
         int $id,
-        string $name,
-        string $surname,
-        string $email
-    ) {
+        User $user
+    )
+    {
         $this->id = $id;
-        $this->name = $name;
-        $this->surname = $surname;
-        $this->email = $email;
+        $this->user = $user;
     }
 
     /**
@@ -32,26 +29,10 @@ class Command
     }
 
     /**
-     * @return string
+     * @return User
      */
-    public function getName(): string
+    public function getUser(): User
     {
-        return $this->name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSurname(): string
-    {
-        return $this->surname;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEmail(): string
-    {
-        return $this->email;
+        return $this->user;
     }
 }

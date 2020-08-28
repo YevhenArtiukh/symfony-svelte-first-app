@@ -5,7 +5,8 @@ async function createUser(id, {name, surname, email}) {
     return await axios.post(`${url}api/user/${id}/edit`, {
         name,
         surname,
-        email
+        email,
+        password: ''
     }).catch(error => console.log(error));
 }
 

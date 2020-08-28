@@ -7,6 +7,10 @@ export default [
         text: 'users',
         url: '/users'
     },
+    {
+        text: 'login',
+        url: '/login'
+    },
     // {
     //     text: 'products',
     //     url: '/products'

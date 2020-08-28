@@ -13,7 +13,7 @@ use Throwable;
 class AddController extends AbstractController
 {
     /**
-     * @Route("/api/users/add", methods={"POST"})
+     * @Route("/api/user/add", methods={"POST"})
      * @param Request $request
      * @param CreateUser $createUser
      * @return JsonResponse

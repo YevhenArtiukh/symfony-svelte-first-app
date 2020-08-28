@@ -2,7 +2,7 @@ import axios from "axios";
 import url from '../URL';
 
 async function createUser({name, surname, email, password}) {
-    return await axios.post(`${url}api/users/add`, {
+    return await axios.post(`${url}api/user/add`, {
         name,
         surname,
         email,

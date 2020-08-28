@@ -34,9 +34,9 @@ class EditUser
         }
 
         $user->edit(
-            $command->getName(),
-            $command->getSurname(),
-            $command->getEmail()
+            $command->getUser()->getName(),
+            $command->getUser()->getSurname(),
+            $command->getUser()->getEmail()
         );
 
         try {

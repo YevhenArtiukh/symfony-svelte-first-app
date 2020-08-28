@@ -4,11 +4,12 @@ namespace App\Entity\Users;
 
 use App\Repository\Users\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -54,7 +55,8 @@ class User
         string $name,
         string $surname,
         string $email
-    ) {
+    )
+    {
         $this->name = $name;
         $this->surname = $surname;
         $this->email = $email;
@@ -111,5 +113,25 @@ class User
         $this->password = $password;
 
         return $this;
+    }
+
+    public function getRoles()
+    {
+        return ['ROLE_ADMIN'];
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    public function eraseCredentials()
+    {
+
     }
 }
