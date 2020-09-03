@@ -5,7 +5,8 @@ const globalStore = writable({
     cart: false,
     alert: false,
     alertText: 'default alert',
-    alertDanger: true
+    alertDanger: true,
+    auth: !!localStorage.getItem('user')
 });
 
 const store = {

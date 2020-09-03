@@ -35,15 +35,26 @@ security:
             entity:
                 class: App\Entity\Users\User
                 property: email
+        app_user_refresh_provider:
+            entity:
+                class: App\Entity\Users\User
+                property: id
     firewalls:
         login:
             pattern:  ^/api/login
             stateless: true
             anonymous: true
+            provider: app_user_provider
             json_login:
                 check_path:               /api/login_check
                 success_handler:          lexik_jwt_authentication.handler.authentication_success
                 failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+
+        refresh:
+            pattern: ^/api/token/refresh
+            stateless: true
+            anonymous: true
+            provider: app_user_refresh_provider
 
         api:
             pattern:   ^/api
@@ -71,4 +82,5 @@ security:
 #        - { path: ^/user/add, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 #        - { path: ^/api/users/add, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/token/refresh, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api,       roles: ROLE_ADMIN }

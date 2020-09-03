@@ -29,7 +29,7 @@
         isSubmit = true;
         let res = await editUser(id, {name, surname, email})
 
-        if(res) {
+        if (res) {
             navigate('/users')
             globalStore.toggleItem("alert", true, "User edited");
         } else {
@@ -49,7 +49,7 @@
     </div>
     <div class="card-body">
         {#if isLoading}
-            <Loading />
+            <Loading/>
         {:else}
             <form on:submit|preventDefault={handleSubmit}>
                 <div class="form-row">
@@ -69,7 +69,8 @@
                 {#if isEmpty}
                     <p class="text-danger">please fill out all form fields</p>
                 {/if}
-                <button type="submit" class="btn btn-primary" class:disabled={isEmpty || isSubmit} disabled={isEmpty || isSubmit}>
+                <button type="submit" class="btn btn-primary" class:disabled={isEmpty || isSubmit}
+                        disabled={isEmpty || isSubmit}>
                     {#if isSubmit}
                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...
                     {:else}
@@ -80,7 +81,4 @@
             </form>
         {/if}
     </div>
-    <!--    <div class="card-footer text-muted">-->
-    <!--        2 days ago-->
-    <!--    </div>-->
 </div>

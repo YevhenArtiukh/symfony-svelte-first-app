@@ -2,31 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36b99c58-892c-4791-87f3-7bd6f976ac30" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/api/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/pages/Login.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/stores/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/api/authors/author.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/api/authors/create.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/api/authors/delete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/api/authors/edit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/api/authors/list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/authors/Author.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/authors/Authors.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/Index.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/Logout.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/NotFound.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/authors/AuthorAdd.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/authors/AuthorEdit.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/authors/Authors.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Adapter/Authors/Authors.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/API/Authors/AddController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/API/Authors/AuthorController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/API/Authors/DeleteController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/API/Authors/EditController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/API/Authors/ListController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Authors/Authors.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Authors/UseCase/CreateAuthor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Authors/UseCase/CreateAuthor/Command.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Authors/UseCase/DeleteAuthor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Authors/UseCase/DeleteAuthor/Command.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Authors/UseCase/EditAuthor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Authors/UseCase/EditAuthor/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony-svelte-first-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony-svelte-first-app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/App.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/api/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/api/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/api/users/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/api/users/create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/api/users/delete.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/api/users/delete.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/api/users/edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/api/users/edit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/api/users/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/api/users/list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/api/users/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/api/users/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/navbar/BigNavbar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/navbar/BigNavbar.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/components/users/Users.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/users/Users.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/constants/links.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/constants/links.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/globalStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/globalStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/Login.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/Login.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/users/UserAdd.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/users/UserAdd.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/users/UserEdit.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/users/UserEdit.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/users/Users.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/users/Users.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/stores/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/stores/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/API/Users/AddController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/API/Users/AddController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/API/Users/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/API/Users/EditController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Users/UseCase/EditUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Users/UseCase/EditUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Users/UseCase/EditUser/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Users/UseCase/EditUser/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/API/Users/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/API/Users/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Users/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Users/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +69,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -149,6 +189,7 @@
       <path value="$PROJECT_DIR$/vendor/namshi/jose" />
       <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/gesdinet/jwt-refresh-token-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ggFFqx2QD9aM9f6FVVotOJ2mcp" />
@@ -160,11 +201,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../svelte-third" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/var/log/dev.log" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../herceptin" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="C:\Users\yart\AppData\Local\JetBrains\PhpStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -175,7 +218,12 @@
       <option name="presentableId" value="Default" />
       <updated>1598528229112</updated>
       <workItem from="1598528230128" duration="3532000" />
-      <workItem from="1598609363957" duration="9682000" />
+      <workItem from="1598609363957" duration="10119000" />
+      <workItem from="1598858265917" duration="70000" />
+      <workItem from="1598858433080" duration="17071000" />
+      <workItem from="1598949624525" duration="9967000" />
+      <workItem from="1599034817047" duration="15009000" />
+      <workItem from="1599115150380" duration="13781000" />
     </task>
     <servers />
   </component>
@@ -187,33 +235,65 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1207" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1598611693634" />
-    <state x="-1155" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1598611759350">
+    <state x="-1155" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1599135837855">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1155" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1598611759350" />
-    <state x="-1180" y="275" key="FileChooserDialogImpl" timestamp="1598610890302">
+    <state x="-1155" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599135837855" />
+    <state x="-1230" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599045215301">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1180" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1598610890302" />
+    <state x="-1230" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599045215301" />
+    <state x="-1180" y="275" key="FileChooserDialogImpl" timestamp="1599136122284">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1180" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599136122284" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1599133022158">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599133022158" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1599133022157">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599133022157" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1599133022157">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599133022157" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1599133022157">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599133022157" />
+    <state x="-1226" y="243" key="NewPhpClassDialog" timestamp="1599135627724">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1226" y="243" key="NewPhpClassDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599135627724" />
     <state x="-1459" y="165" key="SettingsEditor" timestamp="1598609544189">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1459" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1598609544189" />
-    <state x="23" y="46" width="604" height="928" key="dock-window-1" timestamp="1598612631506">
+    <state x="143" y="299" width="1601" height="539" maximized="true" key="dock-window-1" timestamp="1599136736187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="23" y="46" width="604" height="928" key="dock-window-1/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1598612631506" />
-    <state x="-1532" y="73" width="904" height="804" key="dock-window-2" timestamp="1598613092134">
-      <screen x="-1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-1532" y="73" width="904" height="804" key="dock-window-2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1598613092134" />
-    <state x="0" y="0" width="1414" height="842" key="dock-window-3" timestamp="1598622534338">
+    <state x="143" y="299" width="1601" height="539" maximized="true" key="dock-window-1/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599136736187" />
+    <state x="71" y="3" width="1392" height="855" key="dock-window-2" timestamp="1598869241818">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="0" width="1414" height="842" key="dock-window-3/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1598622534338" />
-    <state x="-1253" y="253" width="585" height="534" key="find.popup" timestamp="1598614904902">
+    <state x="71" y="3" width="1392" height="855" key="dock-window-2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1598869241818" />
+    <state x="162" y="37" width="1392" height="855" key="dock-window-3" timestamp="1598873292442">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="162" y="37" width="1392" height="855" key="dock-window-3/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1598873292442" />
+    <state x="-1253" y="253" width="585" height="534" key="find.popup" timestamp="1599051927680">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1253" y="253" width="585" height="534" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1598614904902" />
+    <state x="-1253" y="253" width="585" height="534" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599051927680" />
+    <state x="-1304" y="240" key="run.anything.popup" timestamp="1599052053790">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1304" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599052053790" />
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599116224907">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599116224907" />
   </component>
 </project>

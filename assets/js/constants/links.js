@@ -1,15 +1,28 @@
 export default [
     {
         text: 'dashboard',
-        url: '/'
+        url: '/',
+        auth: true
     },
     {
         text: 'users',
-        url: '/users'
+        url: '/users',
+        auth: true
+    },
+    {
+        text: 'authors',
+        url: '/authors',
+        auth: true
     },
     {
         text: 'login',
-        url: '/login'
+        url: '/login',
+        auth: false
+    },
+    {
+        text: 'logout',
+        url: '/logout',
+        auth: true
     },
     // {
     //     text: 'products',

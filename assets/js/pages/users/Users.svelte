@@ -12,7 +12,7 @@
 <div class="mt-4 mb-4">
     <ul class="nav justify-content-end">
         <li class="nav-item">
-            <a href='/user/add' class="btn btn-primary product-link" use:link>Create user</a>
+            <a href='/user/add' class="btn btn-primary" use:link>Create user</a>
         </li>
     </ul>
 </div>

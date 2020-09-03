@@ -11,17 +11,11 @@
     let isLoading = true;
 
     onMount(async () => {
-        let list = await getUsers();
-        if(list) {
-            users = await getUsers();
-        } else {
-            navigate('/login');
-        }
+        users = await getUsers();
         isLoading = false;
     })
 
    async function deleteHandle(id) {
-        isLoading = true;
         let res = await deleteUser(id);
         if (res) {
             users = users.filter(user => user.id !== id);
@@ -29,7 +23,6 @@
         } else {
             globalStore.toggleItem("alert", true, "Error!", true);
         }
-       isLoading = false;
     }
 </script>
 

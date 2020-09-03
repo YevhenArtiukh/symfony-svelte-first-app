@@ -39,7 +39,7 @@ services:
     Users:
         class: App\Adapter\Users\Users
         arguments:
-            - "@doctrine.orm.default_entity_manager"
+            - "@doctrine.orm.entity_manager"
         public: true
 
     App\Entity\Users\UseCase\CreateUser:
@@ -55,4 +55,25 @@ services:
     App\Entity\Users\UseCase\DeleteUser:
         arguments:
             - "@Users"
+            - "@doctrine_application_transaction"
+
+    Authors:
+        class: App\Adapter\Authors\Authors
+        arguments:
+            - "@doctrine.orm.entity_manager"
+        public: true
+
+    App\Entity\Authors\UseCase\CreateAuthor:
+        arguments:
+            - "@Authors"
+            - "@doctrine_application_transaction"
+
+    App\Entity\Authors\UseCase\EditAuthor:
+        arguments:
+            - "@Authors"
+            - "@doctrine_application_transaction"
+
+    App\Entity\Authors\UseCase\DeleteAuthor:
+        arguments:
+            - "@Authors"
             - "@doctrine_application_transaction"

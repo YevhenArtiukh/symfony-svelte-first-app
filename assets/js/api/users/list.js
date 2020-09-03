@@ -1,11 +1,11 @@
 import axios from "axios";
 import url from '../URL';
-import {getStorageUser} from "../../stores/user";
+import {getToken} from "../../stores/user";
 
 async function getUsers() {
     try {
         const response = await axios.get(`${url}api/users/list`,{
-            headers: { Authorization: `Bearer ${getStorageUser().jwt}` }
+            headers: { Authorization: `Bearer ${getToken()}` }
         });
         return JSON.parse(response.data);
     } catch (error) {

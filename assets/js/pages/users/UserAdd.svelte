@@ -4,7 +4,7 @@
 
     import {link, navigate} from 'svelte-routing';
 
-    let title = "Add user";
+    let title = "User add";
     let name = "";
     let surname = "";
     let email = "";
