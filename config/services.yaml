@@ -77,3 +77,20 @@ services:
         arguments:
             - "@Authors"
             - "@doctrine_application_transaction"
+
+    Books:
+        class: App\Adapter\Books\Books
+        arguments:
+            - "@doctrine.orm.entity_manager"
+        public: true
+
+    App\Entity\Books\UseCase\CreateBook:
+        arguments:
+            - "@Books"
+            - "@Authors"
+            - "@doctrine_application_transaction"
+
+    App\Entity\Books\UseCase\DeleteBook:
+        arguments:
+            - "@Books"
+            - "@doctrine_application_transaction"

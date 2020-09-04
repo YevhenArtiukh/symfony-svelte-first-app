@@ -13,5 +13,7 @@ interface Authors
      * @param int $id
      * @return Author|null
      */
-    public function findOneById(int $id);
+    public function findOneById(int $id): ?Author;
+
+    public function findOneByIdReference(int $id);
 }

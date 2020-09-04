@@ -16,6 +16,11 @@
     import AuthorAdd from './pages/authors/AuthorAdd.svelte';
     import AuthorEdit from './pages/authors/AuthorEdit.svelte';
 
+    // books
+    import Books from './pages/books/Books.svelte';
+    import BookAdd from './pages/books/BookAdd.svelte';
+    import BookEdit from './pages/books/BookEdit.svelte';
+
     // router
     import {navigate, Router, Route, Link} from 'svelte-routing';
 
@@ -76,6 +81,10 @@
             <Route path="authors" component="{Authors}" />
             <Route path="author/add" component="{AuthorAdd}" />
             <Route path="author/:id/edit" component="{AuthorEdit}" />
+
+            <Route path="books" component="{Books}" />
+            <Route path="book/add" component="{BookAdd}" />
+            <Route path="book/:id/edit" component="{BookEdit}" />
         {/if}
         <Route component="{NotFound}" />
     </div>

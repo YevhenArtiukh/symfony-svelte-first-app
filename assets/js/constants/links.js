@@ -15,6 +15,11 @@ export default [
         auth: true
     },
     {
+        text: 'books',
+        url: '/books',
+        auth: true
+    },
+    {
         text: 'login',
         url: '/login',
         auth: false

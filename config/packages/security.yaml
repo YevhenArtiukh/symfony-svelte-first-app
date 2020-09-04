@@ -38,7 +38,7 @@ security:
         app_user_refresh_provider:
             entity:
                 class: App\Entity\Users\User
-                property: id
+                property: username
     firewalls:
         login:
             pattern:  ^/api/login

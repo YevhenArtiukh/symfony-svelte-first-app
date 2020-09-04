@@ -1,10 +1,10 @@
 import axios from "axios";
-import url from '../URL';
+import url from "../URL";
 import {getToken} from "../../stores/user";
 
-async function getUsers() {
+async function getBooks() {
     try {
-        const response = await axios.get(`${url}api/users/list`,{
+        const response = await axios.get(`${url}api/books/list`,{
             headers: { Authorization: `Bearer ${getToken()}` }
         });
         return JSON.parse(response.data);
@@ -13,4 +13,4 @@ async function getUsers() {
     }
 }
 
-export default getUsers;
+export default getBooks;

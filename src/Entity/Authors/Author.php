@@ -2,9 +2,13 @@
 
 namespace App\Entity\Authors;
 
+use App\Entity\Books\Book;
 use App\Repository\Authors\AuthorRepository;
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=AuthorRepository::class)
@@ -33,6 +37,12 @@ class Author
      */
     private $dateOfBirth;
 
+    /**
+     * @Groups("books")
+     * @ORM\ManyToMany(targetEntity=Book::class, mappedBy="authors")
+     */
+    private $books;
+
     public function __construct(
         string $name,
         string $surname,
@@ -42,6 +52,7 @@ class Author
         $this->name = $name;
         $this->surname = $surname;
         $this->dateOfBirth = $dateOfBirth;
+        $this->books = new ArrayCollection();
     }
 
     public function edit(
@@ -92,6 +103,34 @@ class Author
     public function setDateOfBirth(\DateTimeInterface $dateOfBirth): self
     {
         $this->dateOfBirth = $dateOfBirth;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Book[]
+     */
+    public function getBooks(): Collection
+    {
+        return $this->books;
+    }
+
+    public function addBook(Book $book): self
+    {
+        if (!$this->books->contains($book)) {
+            $this->books[] = $book;
+            $book->addAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBook(Book $book): self
+    {
+        if ($this->books->contains($book)) {
+            $this->books->removeElement($book);
+            $book->removeAuthor($this);
+        }
 
         return $this;
     }

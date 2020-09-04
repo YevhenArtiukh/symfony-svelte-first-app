@@ -2,7 +2,10 @@
 
 namespace App\Entity\Users;
 
+use App\Entity\Books\Book;
 use App\Repository\Users\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -37,6 +40,11 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Book::class, inversedBy="users")
+     */
+    private $books;
+
     public function __construct(
         string $name,
         string $surname,
@@ -48,6 +56,7 @@ class User implements UserInterface
         $this->surname = $surname;
         $this->email = $email;
         $this->password = password_hash($password, PASSWORD_BCRYPT);
+        $this->books = new ArrayCollection();
     }
 
     public function edit(
@@ -132,5 +141,31 @@ class User implements UserInterface
     public function eraseCredentials()
     {
 
+    }
+
+    /**
+     * @return Collection|Book[]
+     */
+    public function getBooks(): Collection
+    {
+        return $this->books;
+    }
+
+    public function addBook(Book $book): self
+    {
+        if (!$this->books->contains($book)) {
+            $this->books[] = $book;
+        }
+
+        return $this;
+    }
+
+    public function removeBook(Book $book): self
+    {
+        if ($this->books->contains($book)) {
+            $this->books->removeElement($book);
+        }
+
+        return $this;
     }
 }
