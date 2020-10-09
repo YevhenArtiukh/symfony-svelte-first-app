@@ -8,6 +8,7 @@ use App\Repository\Books\BookRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=BookRepository::class)
@@ -27,6 +28,7 @@ class Book
     private $name;
 
     /**
+     * @Groups("authors")
      * @ORM\ManyToMany(targetEntity=Author::class, inversedBy="books")
      */
     private $authors;
@@ -37,6 +39,7 @@ class Book
     private $count;
 
     /**
+     * @Groups("users")
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="books")
      */
     private $users;
@@ -51,6 +54,17 @@ class Book
         $this->count = $count;
         $this->authors = new ArrayCollection();
         $this->users = new ArrayCollection();
+    }
+
+    public function edit(
+        string $name,
+        int $count,
+        Collection $authors
+    )
+    {
+        $this->name = $name;
+        $this->count = $count;
+        $this->authors = $authors;
     }
 
     public function getId(): ?int

@@ -6,19 +6,17 @@
     import deleteAuthor from '../../api/authors/delete';
     import globalStore from "../../globalStore";
 
-    let authors = [];
-    let isLoading = true;
-
     onMount(async () => {
-        authors = await getAuthors();
-        isLoading = false;
+        globalStore.toggleItem('authors', await getAuthors());
     });
+
+    $: isLoading = !$globalStore.authors.length;
 
     async function deleteHandle(id) {
         let response = await deleteAuthor(id);
 
         if (response) {
-            authors = authors.filter(author => author.id !== id);
+            globalStore.toggleItem('authors', $globalStore.authors.filter(author => author.id !== id));
             globalStore.toggleItem("alert", true, "Author deleted");
         } else {
             globalStore.toggleItem("alert", true, "Error!", true);
@@ -45,7 +43,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {#each authors as author (author.id)}
+                {#each $globalStore.authors as author (author.id)}
                     <Author {author} {deleteHandle}/>
                 {/each}
                 </tbody>

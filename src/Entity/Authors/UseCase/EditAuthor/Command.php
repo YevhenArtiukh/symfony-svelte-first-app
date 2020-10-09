@@ -8,8 +8,8 @@ use App\Entity\Authors\Author;
 
 class Command
 {
-    private $id;
-    private $author;
+    private int $id;
+    private Author $author;
 
     public function __construct(
         int $id,

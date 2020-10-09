@@ -16,6 +16,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Author
 {
     /**
+     * @Groups({"admins"})
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -23,22 +24,25 @@ class Author
     private $id;
 
     /**
+     * @Groups({"admins"})
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @Groups({"admins"})
      * @ORM\Column(type="string", length=255)
      */
     private $surname;
 
     /**
+     * @Groups({"admins"})
      * @ORM\Column(type="date")
      */
     private $dateOfBirth;
 
     /**
-     * @Groups("books")
+     * @Groups({"admins"})
      * @ORM\ManyToMany(targetEntity=Book::class, mappedBy="authors")
      */
     private $books;

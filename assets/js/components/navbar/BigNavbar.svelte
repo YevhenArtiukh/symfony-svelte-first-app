@@ -2,6 +2,7 @@
     import { link } from 'svelte-routing';
     import links from '../../constants/links';
     import globalStore from '../../globalStore';
+
     $: navLinks = links.filter(link => link.auth === $globalStore.auth);
 </script>
 

@@ -3,25 +3,19 @@
     import getBooks from '../../api/books/list';
     import deleteBook from '../../api/books/delete';
     import Book from './Book.svelte';
-    // import getUsers from '../../api/users/list';
-    // import deleteUser from '../../api/users/delete';
-    // import User from "./User.svelte";
-    import globalStore from '../../globalStore';
     import Loading from '../Loading.svelte';
+    import globalStore from '../../globalStore';
     import {navigate} from "svelte-routing";
 
-    let books = [];
-    let isLoading = true;
-
     onMount(async () => {
-        books = await getBooks();
-        isLoading = false;
+        globalStore.toggleItem("books", await getBooks());
     })
+    $: isLoading = !$globalStore.books.length;
 
     async function deleteHandle(id) {
         let res = await deleteBook(id);
         if (res) {
-            books = books.filter(book => book.id !== id);
+            globalStore.toggleItem("books", $globalStore.books.filter(book => book.id !== id));
             globalStore.toggleItem("alert", true, "Book deleted");
         } else {
             globalStore.toggleItem("alert", true, "Error!", true);
@@ -47,7 +41,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {#each books as book (book.id)}
+                {#each $globalStore.books as book (book.id)}
                     <Book {book} {deleteHandle} />
                 {/each}
                 </tbody>

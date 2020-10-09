@@ -3,22 +3,20 @@
     import getUsers from '../../api/users/list';
     import deleteUser from '../../api/users/delete';
     import User from "./User.svelte";
-    import globalStore from '../../globalStore';
     import Loading from '../Loading.svelte';
+    import globalStore from '../../globalStore';
     import {navigate} from "svelte-routing";
 
-    let users = [];
-    let isLoading = true;
-
     onMount(async () => {
-        users = await getUsers();
-        isLoading = false;
+        globalStore.toggleItem('users', await getUsers());
     })
 
-   async function deleteHandle(id) {
+    $: isLoading = !$globalStore.users.length;
+
+    async function deleteHandle(id) {
         let res = await deleteUser(id);
         if (res) {
-            users = users.filter(user => user.id !== id);
+            globalStore.toggleItem('users', $globalStore.users.filter(user => user.id !== id))
             globalStore.toggleItem("alert", true, "User deleted");
         } else {
             globalStore.toggleItem("alert", true, "Error!", true);
@@ -45,7 +43,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {#each users as user (user.id)}
+                {#each $globalStore.users as user (user.id)}
                     <User {user} {deleteHandle} />
                 {/each}
                 </tbody>

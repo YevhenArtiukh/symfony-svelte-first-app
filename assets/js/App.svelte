@@ -33,8 +33,6 @@
     import {getToken, getRefreshToken, logoutUser} from './stores/user';
     import {refreshToken} from './api/auth';
 
-    // onMount(() => {
-    // });
     $: user = $globalStore.auth;
 
     onMount(() => {

@@ -19,10 +19,10 @@
     $: isEmpty = !name || !surname;
 
     onMount(async () => {
-        const user = await getAuthor(id);
-        name = user.name;
-        surname = user.surname;
-        dateOfBirth = new Date(user.dateOfBirth);
+        const author = await getAuthor(id);
+        name = author.name;
+        surname = author.surname;
+        dateOfBirth = new Date(author.dateOfBirth);
         isLoading = false;
     })
 

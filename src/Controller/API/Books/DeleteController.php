@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Controller\API\Authors;
+namespace App\Controller\API\Books;
 
 
-use App\Entity\Authors\UseCase\DeleteAuthor;
+use App\Entity\Books\UseCase\DeleteBook;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,18 +13,18 @@ use Throwable;
 class DeleteController extends AbstractController
 {
     /**
-     * @Route("/api/author/{id}/delete", methods={"DELETE"})
+     * @Route("/api/book/{id}/delete", methods={"DELETE"})
      * @param int $id
-     * @param DeleteAuthor $deleteAuthor
+     * @param DeleteBook $deleteBook
      * @return JsonResponse
      * @throws Throwable
      */
-    public function index(int $id, DeleteAuthor $deleteAuthor): JsonResponse
+    public function index(int $id, DeleteBook $deleteBook): JsonResponse
     {
-        $command = new DeleteAuthor\Command(
+        $command = new DeleteBook\Command(
             $id
         );
 
-        return $deleteAuthor->execute($command);
+        return $deleteBook->execute($command);
     }
 }

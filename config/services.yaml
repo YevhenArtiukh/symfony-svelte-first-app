@@ -90,6 +90,12 @@ services:
             - "@Authors"
             - "@doctrine_application_transaction"
 
+    App\Entity\Books\UseCase\EditBook:
+        arguments:
+            - "@Books"
+            - "@Authors"
+            - "@doctrine_application_transaction"
+
     App\Entity\Books\UseCase\DeleteBook:
         arguments:
             - "@Books"

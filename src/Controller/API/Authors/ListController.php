@@ -19,6 +19,6 @@ class ListController extends AbstractController
      */
     public function index(SerializerInterface $serializer): JsonResponse
     {
-        return new JsonResponse($serializer->serialize($this->getDoctrine()->getRepository(Author::class)->findAll(),'json'));
+        return new JsonResponse($serializer->serialize($this->getDoctrine()->getRepository(Author::class)->findAll(),'json',['circular_reference_handler' => fn($object) => $object->getId()]));
     }
 }

@@ -6,11 +6,18 @@ const globalStore = writable({
     alert: false,
     alertText: 'default alert',
     alertDanger: true,
-    auth: !!localStorage.getItem('user')
+    auth: !!localStorage.getItem('user'),
+
+    users: [],
+    authors: [],
+    books: []
 });
 
 const store = {
     subscribe: globalStore.subscribe,
+    flash: (type, message) => {
+
+    },
     toggleItem: (item, value, alertText="default", alertDanger = false) => {
         if(item === 'alert') {
             globalStore.update(storeValues => {

@@ -20,6 +20,16 @@ class AuthorController extends AbstractController
      */
     public function index(int $id, SerializerInterface $serializer): JsonResponse
     {
-        return new JsonResponse($serializer->serialize($this->getDoctrine()->getRepository(Author::class)->findOneBy(['id' => $id]), 'json', ['groups' => ['books']]));
+        return new JsonResponse(
+            $serializer->serialize(
+                $this->getDoctrine()->getRepository(Author::class)->findOneBy(['id' => $id]),
+                'json',
+                [
+                    'groups' => [
+                        'admins'
+                    ]
+                ]
+            )
+        );
     }
 }
