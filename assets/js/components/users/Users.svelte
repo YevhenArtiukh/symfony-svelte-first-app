@@ -5,7 +5,6 @@
     import User from "./User.svelte";
     import Loading from '../Loading.svelte';
     import globalStore from '../../globalStore';
-    import {navigate} from "svelte-routing";
 
     onMount(async () => {
         globalStore.toggleItem('users', await getUsers());
@@ -26,7 +25,7 @@
 
 <div class="card">
     <div class="card-header text-center">
-        Users list
+        {$globalStore.pageTitle}
     </div>
     <div class="card-body">
         {#if isLoading}

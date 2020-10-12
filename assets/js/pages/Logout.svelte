@@ -1,8 +1,9 @@
 <script>
-    import {navigate} from 'svelte-routing';
     import {logoutUser} from '../stores/user';
+
+    export let router;
 
     logoutUser();
 
-    navigate('/login');
+    router.push('/login');
 </script>

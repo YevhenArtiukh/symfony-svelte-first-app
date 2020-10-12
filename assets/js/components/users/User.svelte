@@ -1,5 +1,5 @@
 <script>
-    import {link} from "svelte-routing";
+    import { RouterLink } from 'svelte-easyroute';
 
     export let deleteHandle;
     export let user;
@@ -12,7 +12,7 @@
     <td>{surname}</td>
     <td>{email}</td>
     <td>
-        <a href={`user/${id}/edit`} class="btn btn-info" use:link>edit</a>
+        <RouterLink to="/user/{id}/edit" class="btn btn-info">edit</RouterLink>
         <button class="btn btn-warning" on:click={() => deleteHandle(id)}>delete</button>
     </td>
 </tr>

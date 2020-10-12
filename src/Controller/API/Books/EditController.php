@@ -10,27 +10,26 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\SerializerInterface;
 use Throwable;
 
 class EditController extends AbstractController
 {
     /**
-     * @Route("/api/book/{id}/edit", methods={"POST"})
-     * @param int $id
+     * @Route("/api/book/{book}/edit", methods={"POST"})
+     * @param Book $book
      * @param Request $request
      * @param EditBook $editBook
-     * @param SerializerInterface $serializer
      * @return JsonResponse
      * @throws Throwable
      */
-    public function index(int $id, Request $request, EditBook $editBook, SerializerInterface $serializer)
+    public function index(Book $book, Request $request, EditBook $editBook)
     {
-        print_r($request->getContent());
-        die();
+        $data = json_decode($request->getContent(), true);
         $command = new EditBook\Command(
-            $id,
-            $serializer->deserialize($request->getContent(), Book::class, 'json')
+            $book,
+            (string) $data['name'],
+            (int) $data['count'],
+            (array) $data['authors']
         );
 
         return $editBook->execute($command);

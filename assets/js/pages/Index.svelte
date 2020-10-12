@@ -1,13 +1,11 @@
 <script>
-    let title = 'Dashboard'
-</script>
+    import globalStore from '../globalStore';
 
-<svelte:head>
-    <title>{title}</title>
-</svelte:head>
+    globalStore.pageTitle('Dashboard');
+</script>
 
 <div class="row mt-5">
     <div class="col-sm-4 offset-sm-4">
-        <h4>dashboard</h4>
+        <h4>{$globalStore.pageTitle}</h4>
     </div>
 </div>

@@ -5,10 +5,13 @@
     import editUser from "../../api/users/edit";
     import globalStore from '../../globalStore';
     import Loading from '../../components/Loading.svelte';
-
+    import { useCurrentRoute } from "svelte-easyroute";
     export let id;
-    let title = "User edit";
+    globalStore.pageTitle('User Edit');
 
+
+
+    console.log(id);
     let isLoading = true;
     let name = "";
     let surname = "";
@@ -18,6 +21,7 @@
     $: isEmpty = !name || !surname || !email;
 
     onMount(async () => {
+        console.log(useCurrentRoute(currentRoute => console.log(currentRoute)));
         const user = await getUser(id);
         name = user.name;
         surname = user.surname;
@@ -39,13 +43,9 @@
     }
 </script>
 
-<svelte:head>
-    <title>{title}</title>
-</svelte:head>
-
 <div class="card">
     <div class="card-header text-center">
-        {title}
+        {$globalStore.pageTitle}
     </div>
     <div class="card-body">
         {#if isLoading}

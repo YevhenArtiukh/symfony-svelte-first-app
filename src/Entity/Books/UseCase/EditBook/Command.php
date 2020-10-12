@@ -8,31 +8,53 @@ use App\Entity\Books\Book;
 
 class Command
 {
-    private int $id;
-    private Book $book;
+    private ?Book $book;
+    private string $name;
+    private int $count;
+    private array $authors;
 
     public function __construct(
-        int $id,
-        Book $book
+        ?Book $book,
+        string $name,
+        int $count,
+        array $authors
     )
     {
-        $this->id = $id;
         $this->book = $book;
+        $this->name = $name;
+        $this->count = $count;
+        $this->authors = $authors;
+    }
+
+    /**
+     * @return Book|null
+     */
+    public function getBook(): ?Book
+    {
+        return $this->book;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
     }
 
     /**
      * @return int
      */
-    public function getId(): int
+    public function getCount(): int
     {
-        return $this->id;
+        return $this->count;
     }
 
     /**
-     * @return Book
+     * @return array
      */
-    public function getBook(): Book
+    public function getAuthors(): array
     {
-        return $this->book;
+        return $this->authors;
     }
 }

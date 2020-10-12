@@ -10,13 +10,32 @@ const globalStore = writable({
 
     users: [],
     authors: [],
-    books: []
+    books: [],
+
+    flash: false,
+    flashType: 'success',
+    flashMessage: '',
+
+    pageTitle: '',
+    preload: true
 });
 
 const store = {
     subscribe: globalStore.subscribe,
-    flash: (type, message) => {
-
+    flashOn: (type, message) => {
+        globalStore.update(storeValues => {
+            return ({...storeValues, flash: true, flashType: type, flashMessage: message});
+        })
+    },
+    flashOff: () => {
+        globalStore.update( storeValues => {
+            return ({...storeValues, flash: false});
+        })
+    },
+    pageTitle: (title) => {
+        globalStore.update(storeValues => {
+            return ({...storeValues, pageTitle: title});
+        })
     },
     toggleItem: (item, value, alertText="default", alertDanger = false) => {
         if(item === 'alert') {

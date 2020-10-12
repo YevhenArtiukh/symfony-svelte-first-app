@@ -35,8 +35,7 @@ class CreateBook
 
         $book = new Book(
             $command->getName(),
-            $command->getCount(),
-            new ArrayCollection($command->getAuthors())
+            $command->getCount()
         );
 
         /** @var int $id */

@@ -1,18 +1,15 @@
 <script>
-    import {link} from "svelte-routing";
+    import { RouterLink } from 'svelte-easyroute';
     import Users from '../../components/users/Users.svelte';
+    import globalStore from '../../globalStore';
 
-    let title = "Users list";
+    globalStore.pageTitle('Users List');
 </script>
-
-<svelte:head>
-    <title>{title}</title>
-</svelte:head>
 
 <div class="mt-4 mb-4">
     <ul class="nav justify-content-end">
         <li class="nav-item">
-            <a href='/user/add' class="btn btn-primary" use:link>Create user</a>
+            <RouterLink to="/user/add" class="btn btn-primary">Create user</RouterLink>
         </li>
     </ul>
 </div>

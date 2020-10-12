@@ -4,13 +4,13 @@
     import {onMount, onDestroy} from "svelte";
 
     const handleClose = () => {
-        globalStore.toggleItem('alert', false)
+        globalStore.flashOff();
     }
 
     let timeout;
     onMount(() => {
         timeout = setTimeout(() => {
-            globalStore.toggleItem('alert', false)
+            globalStore.flashOff();
         }, 3000);
     });
 
@@ -22,7 +22,7 @@
 <div class="alert alert-success alert-dismissible fade show"
      class:alert-danger={$globalStore.alertDanger}
      class:alert-success={!$globalStore.alertDanger} role="alert" transition:fly={{y: -200, duration: 1000}}>
-    {$globalStore.alertText}
+    {$globalStore.flashMessage}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>

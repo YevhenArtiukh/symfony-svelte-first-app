@@ -6,6 +6,7 @@
     import Loading from '../Loading.svelte';
     import globalStore from '../../globalStore';
     import {navigate} from "svelte-routing";
+    import SvelteTable from "svelte-table";
 
     onMount(async () => {
         globalStore.toggleItem("books", await getBooks());

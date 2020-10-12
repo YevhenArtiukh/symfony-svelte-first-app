@@ -46,8 +46,7 @@ class Book
 
     public function __construct(
         string $name,
-        int $count,
-        Collection $authors
+        int $count
     )
     {
         $this->name = $name;

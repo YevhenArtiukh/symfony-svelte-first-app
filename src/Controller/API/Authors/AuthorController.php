@@ -26,7 +26,7 @@ class AuthorController extends AbstractController
                 'json',
                 [
                     'groups' => [
-                        'admins'
+                        'edit'
                     ]
                 ]
             )

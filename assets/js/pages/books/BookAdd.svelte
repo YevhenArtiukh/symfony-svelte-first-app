@@ -18,19 +18,23 @@
     $: isEmpty = !name || !count || !authors;
 
     onMount(async () => {
-        let response = await getAuthors();
+        const response = await getAuthors();
         items = response.map((author) => ({value: author.id, label:author.surname+' '+author.name}));
         isLoading = false;
     })
 
     async function handleSubmit() {
-        let book = await createBook({name, count, authors: authors.map((author) => (author.value))});
+        const book = await createBook({
+            name,
+            count,
+            authors: authors.map((author) => (author.value))
+        });
 
         if(book) {
             navigate('/books')
-            globalStore.toggleItem("alert", true, "Book created");
+            globalStore.flashOn('success','Book created');
         } else {
-            globalStore.toggleItem("alert", true, "Error !!!", true);
+            globalStore.flashOn('error','Error !!!');
         }
         isSubmit = false;
     }

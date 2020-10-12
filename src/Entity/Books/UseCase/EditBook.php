@@ -32,22 +32,20 @@ class EditBook
     {
         $this->transaction->begin();
 
-        $book = $this->books->findOneById($command->getId());
-
-        if (!$book) {
+        if (!$command->getBook()) {
             return new JsonResponse('error', 404);
         }
 
         $collection = new ArrayCollection();
-        foreach ($command->getBook()->getAuthors() as $id) {
+        foreach ($command->getAuthors() as $id) {
             $collection->add($this->authors->findOneByIdReference($id));
         }
-        $book->edit(
-            $command->getBook()->getName(),
-            $command->getBook()->getCount(),
+
+        $command->getBook()->edit(
+            $command->getName(),
+            $command->getCount(),
             $collection
         );
-
 
         try {
             $this->transaction->commit();

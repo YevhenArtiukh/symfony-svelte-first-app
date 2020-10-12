@@ -4,7 +4,9 @@
     import {navigate} from "svelte-routing";
     import globalStore from "../globalStore";
 
-    let title = 'Login page';
+    export let router;
+
+    globalStore.pageTitle("Login Page");
 
     let email = '';
     let password = '';
@@ -14,7 +16,7 @@
 
     onMount(() => {
         if($globalStore.auth)
-            navigate('/');
+            router.push('/');
     })
 
     async function handleSubmit() {
@@ -22,9 +24,9 @@
 
         let user = await loginUser({email, password});
         if(user) {
-            navigate('/');
+            router.push('/');
         } else {
-            globalStore.toggleItem("alert", true, "Error !!!", true);
+            globalStore.flashOn('error', 'Error !!!');
         }
 
         isSubmit = false;
@@ -32,7 +34,6 @@
 </script>
 
 <svelte:head>
-    <title>{title}</title>
     <style>
         body {
             height: 100vh;
@@ -49,7 +50,7 @@
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-auto">
         <div class="card card-signin">
             <div class="card-header text-center">
-                {title}
+                {$globalStore.pageTitle}
             </div>
             <div class="card-body">
                 <form class="form-signin" on:submit|preventDefault={handleSubmit}>

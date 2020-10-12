@@ -15,7 +15,8 @@
     let name = "";
     let count = 0;
     let items = [];
-    let authors = undefined;
+    let authors = [];
+    let selectAuthors = undefined;
     let isSubmit = false;
 
     $: isEmpty = !name || !count;
