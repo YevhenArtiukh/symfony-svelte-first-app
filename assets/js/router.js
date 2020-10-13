@@ -1,4 +1,5 @@
 import Router from "svelte-easyroute";
+import globalStore from './globalStore';
 import Index from './pages/Index.svelte';
 import Login from './pages/Login.svelte';
 import Logout from './pages/Logout.svelte';
@@ -21,63 +22,107 @@ const router = new Router({
     routes: [
         {
             path: "/",
-            component: Index
+            component: () => import('./pages/Index.svelte'),
+            beforeEnter: (to, from, next) => {
+                globalStore.pageTitle('Dashboard');
+                next();
+            }
         },
         {
             path: "/login",
-            component: Login,
+            meta: {
+                layout: 'login'
+            },
+            component: () => import('./pages/Login.svelte'),
             beforeEnter: (to, from, next) => {
+                globalStore.pageTitle('Login Page');
                 next();
             }
         },
         {
             path: "/logout",
-            component: Logout,
+            component: () => import('./pages/Logout.svelte'),
             beforeEnter: (to, from, next) => {
                 next();
             }
         },
         {
             path: "/users",
-            component: Users,
+            component: () => import('./pages/users/Users.svelte'),
+            beforeEnter: (to, from, next) => {
+                globalStore.pageTitle('Users List');
+                next();
+            }
         },
         {
             path: "/user/add",
-            component: UserAdd,
+            component: () => import('./pages/users/UserAdd.svelte'),
+            beforeEnter: (to, from, next) => {
+                globalStore.pageTitle('Create User');
+                next();
+            }
         },
         {
             path: "/user/:id/edit",
-            component: UserEdit,
+            component: () => import('./pages/users/UserEdit.svelte'),
+            beforeEnter: (to, from, next) => {
+                globalStore.pageTitle('Edit User');
+                next();
+            }
         },
         {
             path: "/authors",
-            component: Authors,
+            component: () => import('./pages/authors/Authors.svelte'),
+            beforeEnter: (to, from, next) => {
+                globalStore.pageTitle('Authors');
+                next();
+            }
         },
         {
             path: "/author/add",
-            component: AuthorAdd,
+            component: () => import('./pages/authors/AuthorAdd.svelte'),
+            beforeEnter: (to, from, next) => {
+                globalStore.pageTitle('Author Add');
+                next();
+            }
         },
         {
             path: "/author/:id/edit",
-            component: AuthorEdit,
+            component: () => import('./pages/authors/AuthorEdit.svelte'),
+            beforeEnter: (to, from, next) => {
+                globalStore.pageTitle('Author Edit');
+                next();
+            }
         },
         {
             path: "/books",
-            component: Books,
+            component: () => import('./pages/books/Books.svelte'),
+            beforeEnter: (to, from, next) => {
+                globalStore.pageTitle('Books');
+                next();
+            }
         },
         {
             path: "/book/add",
-            component: BookAdd,
+            component: () => import('./pages/books/BookAdd.svelte'),
+            beforeEnter: (to, from, next) => {
+                globalStore.pageTitle('Book Add');
+                next();
+            }
         },
         {
             path: "/book/:id/edit",
-            component: BookEdit,
+            component: () => import('./pages/books/BookEdit.svelte'),
+            beforeEnter: (to, from, next) => {
+                globalStore.pageTitle('Book Edit');
+                next();
+            }
         },
-        // {
-        //     path: "*",
-        //     component: NotFound,
-        //     name: "Not found"
-        // },
+        {
+            path: "/(.*)",
+            component: () => import('./pages/NotFound.svelte'),
+            name: "Not found"
+        },
     ]
 });
 

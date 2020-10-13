@@ -1,27 +1,22 @@
 <script>
+    import { RouterLink } from "svelte-easyroute";
     import {onMount} from 'svelte';
-    import getUser from '../../api/users/user';
-    import {link, navigate} from 'svelte-routing';
-    import editUser from "../../api/users/edit";
+    import {getUser, editUser} from '../../api/users';
     import globalStore from '../../globalStore';
     import Loading from '../../components/Loading.svelte';
-    import { useCurrentRoute } from "svelte-easyroute";
-    export let id;
-    globalStore.pageTitle('User Edit');
 
+    export let router;
 
-
-    console.log(id);
-    let isLoading = true;
+    let id = router.currentRouteData.value.params.id;
     let name = "";
     let surname = "";
     let email = "";
+    let isLoading = true;
     let isSubmit = false;
 
     $: isEmpty = !name || !surname || !email;
 
     onMount(async () => {
-        console.log(useCurrentRoute(currentRoute => console.log(currentRoute)));
         const user = await getUser(id);
         name = user.name;
         surname = user.surname;
@@ -34,10 +29,10 @@
         let res = await editUser(id, {name, surname, email})
 
         if (res) {
-            navigate('/users')
-            globalStore.toggleItem("alert", true, "User edited");
+            router.push('/users');
+            globalStore.flashOn('success', 'User edited');
         } else {
-            globalStore.toggleItem("alert", true, "Error !!!", true);
+            globalStore.flashOn('error', 'Error !!!');
         }
         isSubmit = false;
     }
@@ -77,7 +72,7 @@
                         Zapisz
                     {/if}
                 </button>
-                <a href="/users" class="btn btn-secondary" use:link>Powrót</a>
+                <RouterLink to="/users" class="btn btn-secondary">Powrót</RouterLink>
             </form>
         {/if}
     </div>

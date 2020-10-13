@@ -14,12 +14,12 @@ class UserController extends AbstractController
 {
     /**
      * @Route("/api/user/{id}", methods={"GET"})
-     * @param int $id
+     * @param User $user
      * @param SerializerInterface $serializer
      * @return JsonResponse
      */
-    public function index(int $id, SerializerInterface $serializer): JsonResponse
+    public function index(User $user, SerializerInterface $serializer): JsonResponse
     {
-        return new JsonResponse($serializer->serialize($this->getDoctrine()->getRepository(User::class)->findOneBy(['id' => $id]),'json'));
+        return new JsonResponse($serializer->serialize($user,'json'));
     }
 }

@@ -27,16 +27,10 @@ class EditUser
     {
         $this->transaction->begin();
 
-        $user = $this->users->findOneById($command->getId());
-
-        if(!$user) {
-            return new JsonResponse('error', 400);
-        }
-
-        $user->edit(
-            $command->getUser()->getName(),
-            $command->getUser()->getSurname(),
-            $command->getUser()->getEmail()
+        $command->getUser()->edit(
+            $command->getName(),
+            $command->getSurname(),
+            $command->getEmail()
         );
 
         try {

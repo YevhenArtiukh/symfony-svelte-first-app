@@ -1,9 +1,6 @@
 <script>
     import { RouterLink } from 'svelte-easyroute';
     import Users from '../../components/users/Users.svelte';
-    import globalStore from '../../globalStore';
-
-    globalStore.pageTitle('Users List');
 </script>
 
 <div class="mt-4 mb-4">

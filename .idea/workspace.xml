@@ -2,33 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36b99c58-892c-4791-87f3-7bd6f976ac30" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/components/Flash.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/api/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/api/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/App.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/Alert.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/books/Books.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/books/Books.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/navbar/BigNavbar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/navbar/BigNavbar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/users/User.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/users/User.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/api/users/create.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/api/users/delete.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/api/users/edit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/api/users/list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/api/users/user.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/components/users/Users.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/users/Users.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/constants/links.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/globalStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/globalStore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/Index.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/Index.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/Login.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/Login.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/Logout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/Logout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/books/BookAdd.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/books/BookAdd.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/pages/books/BookEdit.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/books/BookEdit.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/users/UserAdd.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/users/UserAdd.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/users/UserEdit.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/users/UserEdit.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/pages/users/Users.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/users/Users.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/API/Authors/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/API/Authors/AuthorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/API/Books/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/API/Books/EditController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Authors/Author.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Authors/Author.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Books/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Books/Book.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Books/UseCase/CreateBook.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Books/UseCase/CreateBook.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Books/UseCase/EditBook.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Books/UseCase/EditBook.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Books/UseCase/EditBook/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Books/UseCase/EditBook/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/API/Users/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/API/Users/EditController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/API/Users/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/API/Users/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Users/UseCase/EditUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Users/UseCase/EditUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Users/UseCase/EditUser/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Users/UseCase/EditUser/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Users/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Users/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,6 +202,7 @@
       <workItem from="1602237953601" duration="5890000" />
       <workItem from="1602484594933" duration="16504000" />
       <workItem from="1602508589683" duration="1452000" />
+      <workItem from="1602614785489" duration="14273000" />
     </task>
     <servers />
   </component>
@@ -215,11 +214,12 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1207" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1598611693634" />
-    <state x="-1155" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1602494751562">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1602626339638">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1155" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602494751562" />
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599203756154" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1602626339638" />
     <state x="-1230" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599045215301">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -258,10 +258,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599204105529" />
-    <state x="-1459" y="165" key="SettingsEditor" timestamp="1601898234770">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1602617543226">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1459" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601898234770" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602617543226" />
     <state x="-1143" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602506002557">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -282,17 +283,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="359" y="0" width="1539" height="791" key="dock-window-4/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602507314629" />
-    <state x="-1253" y="253" width="585" height="566" key="find.popup" timestamp="1602504638527">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="667" y="253" width="585" height="566" key="find.popup" timestamp="1602628805026">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1253" y="253" width="585" height="566" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602504638527" />
+    <state x="667" y="253" width="585" height="566" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602628805026" />
     <state x="-1304" y="240" key="run.anything.popup" timestamp="1600411279674">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1304" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600411279674" />
-    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602238617104">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602626195219">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602238617104" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602626195219" />
   </component>
 </project>

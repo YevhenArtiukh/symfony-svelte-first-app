@@ -16,9 +16,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class User implements UserInterface
 {
     /**
-     * @ORM\Column(type="guid")
+     * @ORM\Column(type="integer")
      * @ORM\Id()
-     * @ORM\GeneratedValue(strategy="UUID") */
+     * @ORM\GeneratedValue() */
     private $id;
 
     /**

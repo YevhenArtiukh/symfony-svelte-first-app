@@ -8,24 +8,22 @@ use App\Entity\Users\User;
 
 class Command
 {
-    private $id;
-    private $user;
+    private User $user;
+    private string $name;
+    private string $surname;
+    private string $email;
 
     public function __construct(
-        int $id,
-        User $user
+        User $user,
+        string $name,
+        string $surname,
+        string $email
     )
     {
-        $this->id = $id;
         $this->user = $user;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->email = $email;
     }
 
     /**
@@ -34,5 +32,29 @@ class Command
     public function getUser(): User
     {
         return $this->user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSurname(): string
+    {
+        return $this->surname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
     }
 }

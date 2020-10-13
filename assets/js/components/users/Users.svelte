@@ -1,24 +1,22 @@
 <script>
     import {onMount} from 'svelte';
-    import getUsers from '../../api/users/list';
-    import deleteUser from '../../api/users/delete';
-    import User from "./User.svelte";
-    import Loading from '../Loading.svelte';
+    import {getUsers, deleteUser} from '../../api/users';
     import globalStore from '../../globalStore';
+    import User from "./User.svelte";
+    import Loading from "../Loading.svelte";
 
+    let users;
     onMount(async () => {
-        globalStore.toggleItem('users', await getUsers());
+        users = await getUsers();
     })
-
-    $: isLoading = !$globalStore.users.length;
 
     async function deleteHandle(id) {
         let res = await deleteUser(id);
         if (res) {
-            globalStore.toggleItem('users', $globalStore.users.filter(user => user.id !== id))
-            globalStore.toggleItem("alert", true, "User deleted");
+            users = users.filter(user => user.id !== id);
+            globalStore.flashOn('success', 'User deleted');
         } else {
-            globalStore.toggleItem("alert", true, "Error!", true);
+            globalStore.flashOn('error', 'Error !!!');
         }
     }
 </script>
@@ -28,8 +26,8 @@
         {$globalStore.pageTitle}
     </div>
     <div class="card-body">
-        {#if isLoading}
-            <Loading />
+        {#if !users}
+            <Loading/>
         {:else}
             <table class="table table-striped">
                 <thead>
@@ -42,7 +40,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {#each $globalStore.users as user (user.id)}
+                {#each users as user (user.id)}
                     <User {user} {deleteHandle} />
                 {/each}
                 </tbody>

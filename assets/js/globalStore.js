@@ -8,7 +8,6 @@ const globalStore = writable({
     alertDanger: true,
     auth: !!localStorage.getItem('user'),
 
-    users: [],
     authors: [],
     books: [],
 

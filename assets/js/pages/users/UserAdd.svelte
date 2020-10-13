@@ -1,10 +1,10 @@
 <script>
-    import createUser from '../../api/users/create';
+    import { RouterLink } from 'svelte-easyroute';
+    import {addUser} from '../../api/users';
     import globalStore from '../../globalStore';
 
-    import {link, navigate} from 'svelte-routing';
+    export let router;
 
-    let title = "User add";
     let name = "";
     let surname = "";
     let email = "";
@@ -15,25 +15,21 @@
 
     async function handleSubmit() {
         isSubmit = true;
-        let user = await createUser({name, surname, email, password});
+        let user = await addUser({name, surname, email, password});
 
         if (user) {
-            navigate('/users')
-            globalStore.toggleItem("alert", true, "User created");
+            router.push('/users');
+            globalStore.flashOn('success', 'User created');
         } else {
-            globalStore.toggleItem("alert", true, "Error !!!", true);
+            globalStore.flashOff('error', 'Error !!!');
         }
         isSubmit = false;
     }
 </script>
 
-<svelte:head>
-    <title>{title}</title>
-</svelte:head>
-
 <div class="card">
     <div class="card-header text-center">
-        {title}
+        {$globalStore.pageTitle}
     </div>
     <div class="card-body">
         <form on:submit|preventDefault={handleSubmit}>
@@ -65,7 +61,7 @@
                     Dodaj
                 {/if}
             </button>
-            <a href="/users" class="btn btn-secondary" use:link>Powrót</a>
+            <RouterLink to="/users" class="btn btn-secondary">Powrót</RouterLink>
         </form>
     </div>
 </div>

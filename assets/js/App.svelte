@@ -35,7 +35,8 @@
                 router.push('/login');
             }
         }
-    })
+    });
+
 </script>
 
 <svelte:head>

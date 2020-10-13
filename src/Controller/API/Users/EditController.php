@@ -16,7 +16,7 @@ use Throwable;
 class EditController extends AbstractController
 {
     /**
-     * @Route("/api/user/{id}/edit", methods={"POST"})
+     * @Route("/api/user/{user}/edit", methods={"POST"})
      * @param int $id
      * @param Request $request
      * @param SerializerInterface $serializer
@@ -24,11 +24,14 @@ class EditController extends AbstractController
      * @return JsonResponse
      * @throws Throwable
      */
-    public function index(int $id, Request $request, SerializerInterface $serializer, EditUser $editUser): JsonResponse
+    public function index(User $user, Request $request, SerializerInterface $serializer, EditUser $editUser): JsonResponse
     {
+        $data = json_decode($request->getContent(), true);
         $command = new EditUser\Command(
-            $id,
-            $serializer->deserialize($request->getContent(), User::class, 'json')
+            $user,
+            (string) $data['name'],
+            (string) $data['surname'],
+            (string) $data['email']
         );
 
         return $editUser->execute($command);
