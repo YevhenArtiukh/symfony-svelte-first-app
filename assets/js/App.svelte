@@ -7,7 +7,6 @@
 
     import globalStore from './globalStore';
     import axios from 'axios';
-    import {getToken, getRefreshToken, logoutUser} from './stores/user';
     import {refreshToken} from './api/auth';
 
     import { EasyrouteProvider, RouterOutlet, RouterLink } from 'svelte-easyroute';
@@ -25,18 +24,17 @@
         return response;
     }, async (error) => {
         if (error.response.status === 401) {
-            if(getRefreshToken()) {
-                await refreshToken(getRefreshToken())
-                error.config.headers['Authorization'] = 'Bearer ' + getToken();
+            if(globalStore.getRefreshToken()) {
+                await refreshToken(globalStore.getRefreshToken())
+                error.config.headers['Authorization'] = 'Bearer ' + globalStore.getToken();
                 error.config.baseURL = undefined;
                 return axios.request(error.config);
             } else {
-                logoutUser();
+                globalStore.logout();
                 router.push('/login');
             }
         }
     });
-
 </script>
 
 <svelte:head>

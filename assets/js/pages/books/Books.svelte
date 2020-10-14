@@ -1,18 +1,12 @@
 <script>
-    import {link} from "svelte-routing";
+    import { RouterLink } from 'svelte-easyroute';
     import Books from '../../components/books/Books.svelte';
-
-    let title = "Books list";
 </script>
-
-<svelte:head>
-    <title>{title}</title>
-</svelte:head>
 
 <div class="mt-4 mb-4">
     <ul class="nav justify-content-end">
         <li class="nav-item">
-            <a href="/book/add" class="btn btn-primary" use:link>Create book</a>
+            <RouterLink to="/book/add" class="btn btn-primary">Create book</RouterLink>
         </li>
     </ul>
 </div>

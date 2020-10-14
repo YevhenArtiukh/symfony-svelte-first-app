@@ -1,16 +1,15 @@
 <script>
     import {onMount} from 'svelte';
-    import getAuthors from '../../api/authors/list';
-    import getBook from '../../api/books/book';
-    import {link, navigate} from 'svelte-routing';
-    import editBook from '../../api/books/edit'
+    import { RouterLink } from 'svelte-easyroute';
+    import {getBook, editBook} from '../../api/books';
+    import {getAuthors} from '../../api/authors';
     import globalStore from '../../globalStore';
     import Loading from '../../components/Loading.svelte';
     import Select from "svelte-select";
 
-    export let id;
-    let title = 'Book edit';
+    export let router;
 
+    const id = router.currentRouteData.value.params.id;
     let isLoading = true;
     let name = "";
     let count = 0;
@@ -33,27 +32,22 @@
 
     async function handleSubmit() {
         isSubmit = true;
-        let res = await editBook(id, {name, count, authors: authors.map((author) => (author.value))});
+        const response = await editBook(id, {name, count, authors: authors.map((author) => (author.value))});
 
-        if (res) {
-            navigate('/books');
-            globalStore.toggleItem("alert", true, "Book edited");
+        if (response) {
+            router.push('/books');
+            globalStore.flashOn('success', 'Book edited');
         } else {
-            globalStore.toggleItem("alert", true, "Error !!!", true);
+            globalStore.flashOn('error', 'Error !!!');
         }
         isSubmit = false;
     }
 
 </script>
 
-
-<svelte:head>
-    <title>{title}</title>
-</svelte:head>
-
 <div class="card">
     <div class="card-header text-center">
-        {title}
+        {$globalStore.pageTitle}
     </div>
     <div class="card-body">
         {#if isLoading}
@@ -84,7 +78,7 @@
                         Zapisz
                     {/if}
                 </button>
-                <a href="/books" class="btn btn-secondary" use:link>Powrót</a>
+                <RouterLink to="/books" class="btn btn-secondary">Powrót</RouterLink>
             </form>
         {/if}
     </div>

@@ -1,8 +1,9 @@
 <script>
     import { RouterLink } from 'svelte-easyroute';
 
-    export let deleteHandle;
     export let user;
+    export let deleteHandle;
+
     const {id, name, surname, email} = user;
 </script>
 

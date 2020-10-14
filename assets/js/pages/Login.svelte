@@ -19,12 +19,9 @@
     async function handleSubmit() {
         isSubmit = true;
 
-        const user = await loginUser({email, password});
-        if(user) {
-            router.push('/');
-        } else {
-            globalStore.flashOn('error', 'Error !!!');
-        }
+        await loginUser({email, password})
+            .then(() => router.push('/'))
+            .catch(() => globalStore.flashOn('error', 'Error !!!'));
 
         isSubmit = false;
     }

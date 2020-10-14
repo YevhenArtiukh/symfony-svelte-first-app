@@ -20,8 +20,8 @@
 </script>
 
 <div class="alert alert-success alert-dismissible fade show"
-     class:alert-danger={$globalStore.alertDanger}
-     class:alert-success={!$globalStore.alertDanger} role="alert" transition:fly={{y: -200, duration: 1000}}>
+     class:alert-danger={$globalStore.flashType === 'error'}
+     class:alert-success={$globalStore.flashType === 'success'} role="alert" transition:fly={{y: -200, duration: 1000}}>
     {$globalStore.flashMessage}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>

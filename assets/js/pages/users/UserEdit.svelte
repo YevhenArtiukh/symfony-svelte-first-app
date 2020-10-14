@@ -26,9 +26,9 @@
 
     async function handleSubmit() {
         isSubmit = true;
-        let res = await editUser(id, {name, surname, email})
+        const response = await editUser(id, {name, surname, email})
 
-        if (res) {
+        if (response) {
             router.push('/users');
             globalStore.flashOn('success', 'User edited');
         } else {

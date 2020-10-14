@@ -1,35 +1,32 @@
 <script>
     import {onMount} from 'svelte';
-    import getBooks from '../../api/books/list';
-    import deleteBook from '../../api/books/delete';
+    import {getBooks, deleteBook} from '../../api/books';
+    import globalStore from '../../globalStore';
     import Book from './Book.svelte';
     import Loading from '../Loading.svelte';
-    import globalStore from '../../globalStore';
-    import {navigate} from "svelte-routing";
-    import SvelteTable from "svelte-table";
 
+    let books;
     onMount(async () => {
-        globalStore.toggleItem("books", await getBooks());
+        books = await getBooks();
     })
-    $: isLoading = !$globalStore.books.length;
 
     async function deleteHandle(id) {
-        let res = await deleteBook(id);
-        if (res) {
-            globalStore.toggleItem("books", $globalStore.books.filter(book => book.id !== id));
-            globalStore.toggleItem("alert", true, "Book deleted");
+        const response = await deleteBook(id);
+        if (response) {
+            books = books.filter(book => book.id !== id);
+            globalStore.flashOn('success', 'Book deleted');
         } else {
-            globalStore.toggleItem("alert", true, "Error!", true);
+            globalStore.flashOn('error', 'Error !!!');
         }
     }
 </script>
 
 <div class="card">
     <div class="card-header text-center">
-        Books list
+        {$globalStore.pageTitle}
     </div>
     <div class="card-body">
-        {#if isLoading}
+        {#if !books}
             <Loading />
         {:else}
             <table class="table table-striped">
@@ -42,7 +39,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {#each $globalStore.books as book (book.id)}
+                {#each books as book (book.id)}
                     <Book {book} {deleteHandle} />
                 {/each}
                 </tbody>

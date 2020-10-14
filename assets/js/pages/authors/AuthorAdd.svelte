@@ -1,12 +1,11 @@
 <script>
-    // import DatePicker from "svelte-touch-datepicker";
     import DatePicker from "svelte-calendar";
     import dayjs from 'dayjs';
-    import {link, navigate} from "svelte-routing";
-    import createAuthor from '../../api/authors/create';
+    import { RouterLink } from 'svelte-easyroute';
+    import {addAuthor} from '../../api/authors';
     import globalStore from '../../globalStore';
 
-    let title = 'Author add';
+    export let router;
     let name = '';
     let surname = '';
     let dateOfBirth = new Date();
@@ -16,29 +15,21 @@
 
     async function handleSubmit() {
         isSubmit = true;
-        let author = await createAuthor({
-            name,
-            surname,
-            dateOfBirth
-        });
+        let response = await addAuthor({name, surname, dateOfBirth});
 
-        if(author) {
-            navigate('/authors')
-            globalStore.toggleItem("alert", true, "Author created");
+        if(response) {
+            router.push('/authors');
+            globalStore.flashOn('success', 'Author created');
         } else {
-            globalStore.toggleItem("alert", true, "Error !!!", true);
+            globalStore.flashOn('error', 'Error !!!');
         }
         isSubmit = false;
     }
 </script>
 
-<svelte:head>
-    <title>{title}</title>
-</svelte:head>
-
 <div class="card">
     <div class="card-header text-center">
-        {title}
+        {$globalStore.pageTitle}
     </div>
     <div class="card-body">
         <form on:submit|preventDefault={handleSubmit}>
@@ -68,7 +59,7 @@
                     Dodaj
                 {/if}
             </button>
-            <a href="/authors" class="btn btn-secondary" use:link>Powrót</a>
+            <RouterLink to="/authors" class="btn btn-secondary">Powrót</RouterLink>
         </form>
     </div>
 </div>

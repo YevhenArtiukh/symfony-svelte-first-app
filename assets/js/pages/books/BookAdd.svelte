@@ -1,13 +1,14 @@
 <script>
-    import createBook from '../../api/books/create';
-    import getAuthors from '../../api/authors/list';
+    import {onMount} from "svelte";
+    import {RouterLink} from "svelte-easyroute";
+    import {addBook} from '../../api/books';
+    import {getAuthors} from '../../api/authors';
     import globalStore from '../../globalStore';
     import Select from 'svelte-select';
-    import {link, navigate} from 'svelte-routing';
-    import {onMount} from "svelte";
     import Loading from '../../components/Loading.svelte';
 
-    let title = "Book add";
+    export let router;
+
     let name = "";
     let count = null;
     let items = [];
@@ -24,15 +25,15 @@
     })
 
     async function handleSubmit() {
-        const book = await createBook({
+        const response = await addBook({
             name,
             count,
             authors: authors.map((author) => (author.value))
         });
 
-        if(book) {
-            navigate('/books')
-            globalStore.flashOn('success','Book created');
+        if(response) {
+            router.push('/books');
+            globalStore.flashOn('success', 'Book created');
         } else {
             globalStore.flashOn('error','Error !!!');
         }
@@ -40,13 +41,9 @@
     }
 </script>
 
-<svelte:head>
-    <title>{title}</title>
-</svelte:head>
-
 <div class="card">
     <div class="card-header text-center">
-        {title}
+        {$globalStore.pageTitle}
     </div>
     <div class="card-body">
         {#if isLoading}
@@ -77,7 +74,7 @@
                         Dodaj
                     {/if}
                 </button>
-                <a href="/books" class="btn btn-secondary" use:link>Powrót</a>
+                <RouterLink to="/books" class="btn btn-secondary">Powrót</RouterLink>
             </form>
         {/if}
     </div>

@@ -1,9 +1,8 @@
 <script>
-    import {logoutUser} from '../stores/user';
+    import globalStore from '../globalStore';
 
     export let router;
 
-    logoutUser();
-
+    globalStore.logout();
     router.push('/login');
 </script>

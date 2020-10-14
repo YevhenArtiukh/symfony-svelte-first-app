@@ -1,35 +1,33 @@
 <script>
     import {onMount} from 'svelte';
-    import getAuthors from '../../api/authors/list';
+    import {getAuthors, deleteAuthor} from '../../api/authors';
+    import globalStore from "../../globalStore";
     import Loading from '../Loading.svelte';
     import Author from './Author.svelte';
-    import deleteAuthor from '../../api/authors/delete';
-    import globalStore from "../../globalStore";
 
+    let authors;
     onMount(async () => {
-        globalStore.toggleItem('authors', await getAuthors());
+        authors = await getAuthors();
     });
 
-    $: isLoading = !$globalStore.authors.length;
-
     async function deleteHandle(id) {
-        let response = await deleteAuthor(id);
+        const response = await deleteAuthor(id);
 
         if (response) {
-            globalStore.toggleItem('authors', $globalStore.authors.filter(author => author.id !== id));
-            globalStore.toggleItem("alert", true, "Author deleted");
+            authors = authors.filter(author => author.id !== id);
+            globalStore.flashOn('success', 'Author deleted');
         } else {
-            globalStore.toggleItem("alert", true, "Error!", true);
+            globalStore.flashOn('error', 'Error !!!');
         }
     }
 </script>
 
 <div class="card">
     <div class="card-header text-center">
-        Authors list
+        {$globalStore.pageTitle}
     </div>
     <div class="card-body">
-        {#if isLoading}
+        {#if !authors}
             <Loading/>
         {:else}
             <table class="table table-striped">
@@ -43,7 +41,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {#each $globalStore.authors as author (author.id)}
+                {#each authors as author (author.id)}
                     <Author {author} {deleteHandle}/>
                 {/each}
                 </tbody>

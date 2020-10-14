@@ -16,7 +16,7 @@ use Throwable;
 class EditController extends AbstractController
 {
     /**
-     * @Route("/api/user/{user}/edit", methods={"POST"})
+     * @Route("/api/user/{user}/edit", methods={"PUT"})
      * @param int $id
      * @param Request $request
      * @param SerializerInterface $serializer
